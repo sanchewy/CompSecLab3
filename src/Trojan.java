@@ -1,4 +1,6 @@
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -6,6 +8,9 @@ import java.io.RandomAccessFile;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -45,5 +50,15 @@ public class Trojan {
                 System.out.println(ex);
             }
         }
+        JPanel panel = new JPanel(new BorderLayout());
+        JFrame frame = new JFrame("Antivirus Scan");
+        frame.add(panel);
+        JLabel lab = new JLabel("The scanning finishes and no virus is found!");
+        panel.add(lab);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(300,100));
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
 }
